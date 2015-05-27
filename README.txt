@@ -1,5 +1,4 @@
 Supported Features:
-<----------------->
 -GPU Accelleration
 -Box2D Physics Support
 -SAX-Style XML Parsing
