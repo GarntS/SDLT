@@ -1,0 +1,46 @@
+# Project: SDLight
+# Makefile created by Dev-C++ 5.10
+
+CPP      = g++.exe -D__DEBUG__
+CC       = gcc.exe -D__DEBUG__
+WINDRES  = windres.exe
+OBJ      = obj/main.o obj/SDLTApp.o obj/SDLTGfx.o obj/SDLTTestApp.o obj/SDLTScene.o obj/SDLTKeyboard.o obj/SDLTXml.o
+LINKOBJ  = obj/main.o obj/SDLTApp.o obj/SDLTGfx.o obj/SDLTTestApp.o obj/SDLTScene.o obj/SDLTKeyboard.o obj/SDLTXml.o
+LIBS     = -L"E:/C-Cpp/Dev-Cpp/MinGW64/lib" -L"E:/C-Cpp/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib" -static-libgcc -mwindows -lmingw32 -lSDL2main -lSDL2 -lSDL2_image -lSDL2_ttf -lBox2D -lwinmm -limm32 -lversion -loleaut32 -lole32 -llibfreetype -llibtinyxml2 -llua -g3
+INCS     = -I"E:/C-Cpp/Dev-Cpp/MinGW64/include" -I"E:/C-Cpp/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"E:/C-Cpp/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.8.1/include"
+CXXINCS  = -I"E:/C-Cpp/Dev-Cpp/MinGW64/include" -I"E:/C-Cpp/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"E:/C-Cpp/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.8.1/include" -I"E:/C-Cpp/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.8.1/include/c++"
+BIN      = bin/SDLT.exe
+CXXFLAGS = $(CXXINCS) -g3 -std=c++11
+CFLAGS   = $(INCS) -g3
+RM       = rm.exe -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+obj/main.o: main.cc
+	$(CPP) -c main.cc -o obj/main.o $(CXXFLAGS)
+
+obj/SDLTApp.o: SDLTApp.cc
+	$(CPP) -c SDLTApp.cc -o obj/SDLTApp.o $(CXXFLAGS)
+
+obj/SDLTGfx.o: SDLTGfx.cc
+	$(CPP) -c SDLTGfx.cc -o obj/SDLTGfx.o $(CXXFLAGS)
+
+obj/SDLTTestApp.o: SDLTTestApp.cc
+	$(CPP) -c SDLTTestApp.cc -o obj/SDLTTestApp.o $(CXXFLAGS)
+
+obj/SDLTScene.o: SDLTScene.cc
+	$(CPP) -c SDLTScene.cc -o obj/SDLTScene.o $(CXXFLAGS)
+
+obj/SDLTKeyboard.o: SDLTKeyboard.cc
+	$(CPP) -c SDLTKeyboard.cc -o obj/SDLTKeyboard.o $(CXXFLAGS)
+
+obj/SDLTXml.o: SDLTXml.cc
+	$(CPP) -c SDLTXml.cc -o obj/SDLTXml.o $(CXXFLAGS)
